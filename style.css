@@ -1,0 +1,75 @@
+.image-container {
+    display: flex; /* Use flexbox to align items side by side */
+    justify-content: center; /* Center the images horizontally */
+    align-items: center; /* Center the images vertically */
+    width: 100%; /* Make the container take full width */
+    max-width: 1500px; /* Set a maximum width for the container */
+}
+
+.responsive-image {
+    width: 25%; /* Set the width of each image */
+    height: auto; /* Keep the aspect ratio */
+    margin: 5px; /* Add some space between the images */
+    transition: filter 0.3s ease; /* Smooth transition for the blur effect */
+}
+
+/* Blur all images when hovering over the container */
+.image-container:hover .responsive-image {
+    filter: blur(5px); /* Blur the images when hovering over the container */
+}
+
+.paragraph-container {
+    display: flex; /* Use flexbox to align items side by side */
+    justify-content: center; /* Center the items horizontally */
+    gap: 30px; /* Add space between paragraphs */
+    flex-wrap: wrap; /* Allow paragraphs to wrap for responsive layout */
+    margin-top: 50px; /* Add margin between images and text */
+    opacity: 0; /* Initially hide the text */
+    transition: opacity 0.3s ease; /* Smooth transition for text appearance */
+}
+
+/* Make the text appear when hovering over the image container */
+.image-container:hover + .paragraph-container {
+    opacity: 1; /* Show the text when hovering over the images */
+}
+
+h1 {
+    color: #3a67b1; /* Text color */
+    font-family: "Playfair Display", serif; /* Font family */
+    font-size: 180px; /* Font size */
+    font-weight: 400;
+    transform: translate(0,-300%);
+    text-align: center; /* Center the heading */
+}
+
+p {
+    color: #ffffff;
+    font-family: "Playfair Display", serif; /* Font family */
+    font-size: 17px; /* Font size */
+    width: 320px; /* Width of the paragraph */
+    line-height: 1.5; /* Adjust line height for readability */
+    text-align: left; /* Align text to the left */
+    font-weight: 400;
+    transform: translate(2.1%,-120%); /* Move paragraphs up */
+}
+
+
+@media (max-width: 768px) {
+    .responsive-image {
+        width: 40%; /* Adjust image width for smaller screens */
+    }
+
+    .paragraph-container {
+        flex-direction: column; /* Stack paragraphs vertically on smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .responsive-image {
+        width: 90%; /* Make images take up more space on small screens */
+    }
+
+    p {
+        width: 90%; /* Make paragraphs take full width on small screens */
+    }
+}
